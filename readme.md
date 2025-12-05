@@ -8,146 +8,165 @@
 ![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
 ![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?logo=powerbi&logoColor=black)
 
----
+📌 Overview
 
-## 📌 Project Overview
-This project demonstrates an **end-to-end real-time data pipeline** using the **Modern Data Stack**.  
-We capture **live stock market data** from an external API, stream it in real time, orchestrate transformations, and deliver analytics-ready insights — all in one unified project.
+I built this project to understand how real-world data engineering systems work across ingestion, storage, transformation, orchestration, and analytics.
 
-![Architecture (1)](https://github.com/user-attachments/assets/6b49eb4d-4bf7-473d-9281-50c20b241760)
+This pipeline pulls live stock market tick data, processes it using the modern data stack, and exposes clean “Gold” data models for BI dashboards.
+
+The aim was not just to replicate a tutorial —
+👉 but to design a robust, production-style pipeline end-to-end as a fresher preparing for Data Engineer / Data Analyst roles.
+
+🏗️ Architecture (My Version)
+
+This is the architecture I implemented:
+
+API → Kafka → MinIO → Airflow → Snowflake (Bronze → Silver → Gold via DBT) → Power BI
+
+Each layer has a clear responsibility:
+
+Kafka → Handles the "real-time" nature
+
+MinIO → Acts as object storage for raw events
+
+Snowflake → Scalable warehouse
+
+DBT → Transformations & model logic
+
+Airflow → Automation/orchestration
+
+Power BI → Visualization using Gold models
+
+🔧 Tech Stack (What I Actually Used Hands-On)
+Layer	Tools
+Streaming	Apache Kafka (Docker)
+Storage	MinIO (S3 bucket)
+Ingestion	Python (Producer + Consumer)
+Orchestration	Apache Airflow
+Warehouse	Snowflake
+Transformations	DBT Core
+Dashboard	Power BI
+🌟 What This Pipeline Does
+
+Collects live stock price ticks every few seconds
+
+Streams them into Kafka as JSON
+
+Writes raw JSON to MinIO
+
+Loads raw objects into Snowflake Bronze tables
+
+DBT cleans and enriches data into Silver
+
+Creates business-friendly Gold models:
+
+Latest KPIs
+
+Candlestick charts
+
+Trendline summaries
+
+Power BI connects directly to Gold models for near real-time monitoring
+
+📂 Project Structure (Cleaned & Curated)
+real-time-stocks-mds/
+│── producer/                 # Live API → Kafka
+│── consumer/                 # Kafka → MinIO
+│── infra/                    # Airflow & Docker infra
+│── dbt_stocks/               # DBT models (Bronze, Silver, Gold)
+│── dashboard/                # Power BI dashboard files
+│── docker-compose.yml
+│── requirements.txt
+│── README.md
+
+🧠 My Learning Outcomes (Placement Focus)
+
+This project taught me:
+
+1. How real-time data pipelines actually work
+
+Message queue usage
+
+Event streaming
+
+Fault tolerance
+
+2. How companies clean and structure raw data
+
+Bronze → Silver → Gold
+
+Window functions for trendlines and candlesticks
+
+KPI calculations
+
+3. How orchestration ties everything together
+
+DAG scheduling
+
+Task dependencies
+
+Automated ingestion
+
+4. How BI dashboards read transformed data
+
+Direct Query vs Import
+
+KPI modeling
+
+Data refresh strategies
+
+This helps me answer questions clearly in interviews like:
+
+“Explain a project where you used SQL and Python together.”
+
+“Have you worked with any warehousing tools?”
+
+“What is your understanding of ELT pipelines?”
+
+🚀 Steps to Run (My Setup)
+
+Start Kafka, Zookeeper, MinIO & Airflow
+
+docker-compose up -d
 
 
----
+Run producer
 
-## ⚡ Tech Stack
-- **Snowflake** → Cloud Data Warehouse  
-- **DBT** → SQL-based Transformations  
-- **Apache Airflow** → Workflow Orchestration  
-- **Apache Kafka** → Real-time Streaming  
-- **Python** → Data Fetching & API Integration  
-- **Docker** → Containerization  
-- **Power BI** → Data Visualization  
+python producer/producer.py
 
----
 
-## ✅ Key Features
-- Fetching **live stock market data** (not simulated) from an API  
-- Real-time streaming pipeline with **Kafka**  
-- Orchestrated ETL workflow using **Airflow**  
-- Transformations using **DBT** inside Snowflake  
-- Scalable cloud warehouse powered by **Snowflake**  
-- Analytics-ready **Power BI dashboards**  
+Run consumer
 
----
+python consumer/consumer.py
 
-## 📂 Repository Structure
 
-```text
-real-time-stocks-pipeline/
-├── producer/                     # Kafka producer (Finnhub API)
-│   └── producer.py
-├── consumer/                     # Kafka consumer (MinIO sink)
-│   └── consumer.py
-├── dbt_stocks/models/
-│   ├── bronze
-│   │   ├── bronze_stg_stock_quotes.sql
-│   │   └── sources.yml
-│   ├── silver
-│   │   └── silver_clean_stock_quotes.sql
-│   └── gold
-│       ├── gold_candlestick.sql
-│       ├── gold_kpi.sql
-│       └── gold_treechart.sql
-├── dag/
-│   └── minio_to_snowflake.py
-├── docker-compose.yml            # Kafka, Zookeeper, MinIO, Airflow, Postgres
-├── requirements.txt
-└── README.md                     # Documentation
-```
----
+Trigger Airflow DAG
+This loads MinIO → Snowflake Bronze
 
-## 🚀 Getting Started
-1. Clone this repo and set up environment  
-2. Start Kafka + Airflow services via Docker  
-3. Run the Python producer to fetch live stock data  
-4. Data flows into Snowflake → DBT applies transformations  
-5. Orchestrate everything with Airflow  
-6. Connect Power BI for visualization  
+Run DBT models
 
----
+dbt run
 
-## ⚙️ Step-by-Step Implementation
 
-### **1. Kafka Setup**
-- Configured **Apache Kafka** locally using Docker.
-- Created a **stocks-topic** to handle live stock market events.
-- Defined producers (API fetch) and consumers (pipeline ingestion).
+Open Power BI
+Connect to Snowflake Gold models.
 
----
+📊 Final Dashboard (My Deliverables)
 
-### **2. Live Market Data Producer**
-- Developed **Python producer script** `stock_producer.py` to fetch **real-time stock prices** from the **Finnhub API** using an API key.
-- Streams stock data into Kafka in JSON format.
-- [Producer Code](producer/producer.py)
+Candlestick chart
 
----
+Price trendline
 
-### **3. Kafka Consumer → MinIO**
-- Built **Python consumer script** `stock_consumer.py` to consume streaming data from Kafka.
-- Stored consumed data into **MinIO buckets** (S3-compatible storage).
-- Organized storage into folders for **raw/bronze layer ingestion**.
-- [Consumer Code](consumer/consumer.py)
+Symbol-level KPI cards
 
----
+Change % charts
 
-### **4. Airflow Orchestration**
-- Initialized **Apache Airflow** in Docker.
-- Created DAG (`stock_pipeline_dag.py`) to:
-  - Load data from MinIO into **Snowflake staging tables** (Bronze).
-  - Schedule automated runs every **1 minute**.
-- [Airflow DAGs](dag/minio_to_snowflake.py)
+Tree map for stock comparison
 
----
+👤 Author
 
-### **5. Snowflake Warehouse Setup**
-- Created **Snowflake database, schema, and warehouse**.
-- Defined staging tables for **Bronze → Silver → Gold** layers.
-- SQL scripts available at:
-  - [Snowflake Setup](snowflake/sql_init.sql)
+Mahak Choubey
+Data Engineering & Analytics Enthusiast
+📧 2003mahakchoubey@gmail.com
 
----
-
-### **6. DBT Transformations**
-- Configured **DBT project** with Snowflake connection.
-- Models include:
-  - [**Bronze models**](dbt_stocks/models/bronze/bronze_stg_stock_quotes.sql) → raw structured data  
-  - [**Silver models**](dbt_stocks/models/silver/silver_clean_stock_quotes.sql) → cleaned, validated data  
-  - [**Gold models**](dbt_stocks/models/gold) → analytical views (Candlestick, KPI, Tree Map)
-      
-
----
-
-### **7. Power BI Dashboard**
-- Connected **Power BI** to Snowflake (Gold layer) using **Direct Query**.
-- Built:
-  - **Candlestick chart** → stock market patterns  
-  - **Tree chart** → stock price trends  
-  - **gauge charts** → stock volume & total sales breakdown  
-  - **KPI's** → real-time sortable view  
-
----
-
-## 📊 Final Deliverables
-- **Automated real-time data pipeline**  
-- **Snowflake tables (Bronze → Silver → Gold)**  
-- **Transformed analytics models with DBT**  
-- **Orchestrated DAGs in Airflow**  
-- **Power BI dashboard with live insights**  
-
----
-
-**Author**: *Jaya Chandra Kadiveti* 
-
-**LinkedIn**: [username](https://www.linkedin.com/in/jayachandrakadiveti/) 
-
-**Contact**: [datawithjay1@gmail.com](mailto:datawithjay1@gmail.com)
+🔗 LinkedIn: https://www.linkedin.com/in/mahak-choubey-a38b90289
