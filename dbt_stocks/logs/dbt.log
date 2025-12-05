@@ -1,0 +1,90 @@
+[0m23:29:41.929921 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F6DD9CA130>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F6E0608D90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F6E0608C40>]}
+
+
+============================== 23:29:41.958515 | cbf4968c-4e27-474b-bd5a-410df8094085 ==============================
+[0m23:29:41.958515 [info ] [MainThread]: Running with dbt=1.7.4
+[0m23:29:41.961067 [debug] [MainThread]: running dbt with arguments {'log_format': 'default', 'profiles_dir': 'C:\\Users\\2003m\\.dbt', 'static_parser': 'True', 'use_experimental_parser': 'False', 'indirect_selection': 'eager', 'write_json': 'True', 'invocation_command': 'dbt init dbt_stocks', 'log_cache_events': 'False', 'introspect': 'True', 'printer_width': '80', 'quiet': 'False', 'send_anonymous_usage_stats': 'True', 'fail_fast': 'False', 'target_path': 'None', 'debug': 'False', 'log_path': 'logs', 'partial_parse': 'True', 'version_check': 'True', 'no_print': 'None', 'warn_error': 'None', 'use_colors': 'True', 'cache_selected_only': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])'}
+[0m23:29:41.990433 [warn ] [MainThread]: [ConfigFolderDirectory]: Unable to parse dict {'dir': WindowsPath('C:/Users/2003m/.dbt')}
+[0m23:29:41.990433 [info ] [MainThread]: Creating dbt configuration folder at 
+[0m23:29:42.019147 [debug] [MainThread]: Starter project path: C:\Users\2003m\real-time-stocks-mds\venv\lib\site-packages\dbt\include\starter_project
+[0m23:29:42.129362 [info ] [MainThread]: 
+Your new dbt project "dbt_stocks" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m23:29:42.135647 [info ] [MainThread]: Setting up your profile.
+[0m23:50:02.421178 [error] [MainThread]: Encountered an error:
+
+[0m23:50:02.503774 [error] [MainThread]: Traceback (most recent call last):
+  File "C:\Users\2003m\real-time-stocks-mds\venv\lib\site-packages\dbt\cli\requires.py", line 90, in wrapper
+    result, success = func(*args, **kwargs)
+  File "C:\Users\2003m\real-time-stocks-mds\venv\lib\site-packages\dbt\cli\requires.py", line 75, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\2003m\real-time-stocks-mds\venv\lib\site-packages\dbt\cli\main.py", line 515, in init
+    results = task.run()
+  File "C:\Users\2003m\real-time-stocks-mds\venv\lib\site-packages\dbt\task\init.py", line 344, in run
+    self.setup_profile(profile_name)
+  File "C:\Users\2003m\real-time-stocks-mds\venv\lib\site-packages\dbt\task\init.py", line 264, in setup_profile
+    self.create_profile_from_target(adapter, profile_name=profile_name)
+  File "C:\Users\2003m\real-time-stocks-mds\venv\lib\site-packages\dbt\task\init.py", line 181, in create_profile_from_target
+    self.create_profile_from_profile_template(profile_template, profile_name)
+  File "C:\Users\2003m\real-time-stocks-mds\venv\lib\site-packages\dbt\task\init.py", line 165, in create_profile_from_profile_template
+    target = self.generate_target_from_input(prompts, initial_target)
+  File "C:\Users\2003m\real-time-stocks-mds\venv\lib\site-packages\dbt\task\init.py", line 118, in generate_target_from_input
+    target = self.generate_target_from_input(
+  File "C:\Users\2003m\real-time-stocks-mds\venv\lib\site-packages\dbt\task\init.py", line 131, in generate_target_from_input
+    target[key] = click.prompt(
+  File "C:\Users\2003m\real-time-stocks-mds\venv\lib\site-packages\click\termui.py", line 164, in prompt
+    value = prompt_func(prompt)
+  File "C:\Users\2003m\real-time-stocks-mds\venv\lib\site-packages\click\termui.py", line 147, in prompt_func
+    raise Abort() from None
+click.exceptions.Abort
+
+[0m23:50:02.520303 [debug] [MainThread]: Command `dbt init` failed at 23:50:02.514806 after 1220.65 seconds
+[0m23:50:02.531463 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F6DD9CA130>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F6E8FD98B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F6E8FD99A0>]}
+[0m23:50:02.535300 [debug] [MainThread]: Flushing usage events
+[0m23:50:13.765631 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E6362C57F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E638F08C10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E638F08B80>]}
+
+
+============================== 23:50:13.774488 | 8fcb81c1-577b-412e-8d56-ff33a241f2b7 ==============================
+[0m23:50:13.774488 [info ] [MainThread]: Running with dbt=1.7.4
+[0m23:50:13.774488 [debug] [MainThread]: running dbt with arguments {'log_format': 'default', 'profiles_dir': 'C:\\Users\\2003m\\.dbt', 'static_parser': 'True', 'use_experimental_parser': 'False', 'printer_width': '80', 'write_json': 'True', 'log_cache_events': 'False', 'indirect_selection': 'eager', 'introspect': 'True', 'invocation_command': 'dbt init dbt_stocks', 'quiet': 'False', 'target_path': 'None', 'fail_fast': 'False', 'send_anonymous_usage_stats': 'True', 'debug': 'False', 'log_path': 'logs', 'partial_parse': 'True', 'warn_error': 'None', 'no_print': 'None', 'version_check': 'True', 'cache_selected_only': 'False', 'use_colors': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])'}
+[0m23:50:13.776007 [info ] [MainThread]: A project called dbt_stocks already exists here.
+[0m23:50:13.778033 [debug] [MainThread]: Command `dbt init` succeeded at 23:50:13.778033 after 0.06 seconds
+[0m23:50:13.778033 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E6362C57F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E638F08AF0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E638F08DF0>]}
+[0m23:50:13.778033 [debug] [MainThread]: Flushing usage events
+[0m23:50:41.580173 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002D8EB3644C0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002D8EDF98D30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002D8EDF98BB0>]}
+
+
+============================== 23:50:41.586905 | f2d0bf30-7e0b-4513-b926-aa2916a42f67 ==============================
+[0m23:50:41.586905 [info ] [MainThread]: Running with dbt=1.7.4
+[0m23:50:41.586905 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'profiles_dir': 'C:\\Users\\2003m\\.dbt', 'log_format': 'default', 'use_experimental_parser': 'False', 'indirect_selection': 'eager', 'write_json': 'True', 'invocation_command': 'dbt init dbt_stocks', 'printer_width': '80', 'introspect': 'True', 'log_cache_events': 'False', 'quiet': 'False', 'target_path': 'None', 'fail_fast': 'False', 'send_anonymous_usage_stats': 'True', 'debug': 'False', 'log_path': 'logs', 'partial_parse': 'True', 'version_check': 'True', 'no_print': 'None', 'warn_error': 'None', 'cache_selected_only': 'False', 'use_colors': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])'}
+[0m23:50:41.591768 [info ] [MainThread]: A project called dbt_stocks already exists here.
+[0m23:50:41.595266 [debug] [MainThread]: Command `dbt init` succeeded at 23:50:41.595266 after 0.07 seconds
+[0m23:50:41.595266 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002D8EB3644C0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002D8EDF98B20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002D8EDF98D90>]}
+[0m23:50:41.595266 [debug] [MainThread]: Flushing usage events
+[0m15:31:40.196053 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A3C98797F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A3CC4A7D30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A3CC4A7BB0>]}
+
+
+============================== 15:31:40.205681 | 5935ce60-ce0f-40ce-9a09-13306ddbe774 ==============================
+[0m15:31:40.205681 [info ] [MainThread]: Running with dbt=1.7.4
+[0m15:31:40.208733 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'profiles_dir': 'C:\\Users\\2003m\\.dbt', 'log_format': 'default', 'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'invocation_command': 'dbt run', 'introspect': 'True', 'use_experimental_parser': 'False', 'quiet': 'False', 'send_anonymous_usage_stats': 'True', 'fail_fast': 'False', 'target_path': 'None', 'debug': 'False', 'log_path': 'logs', 'partial_parse': 'True', 'warn_error': 'None', 'no_print': 'None', 'version_check': 'True', 'use_colors': 'True', 'cache_selected_only': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])'}
+[0m15:31:40.210253 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path C:\Users\2003m\real-time-stocks-mds\dbt_stocks\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m15:31:40.215048 [debug] [MainThread]: Command `dbt run` failed at 15:31:40.215048 after 0.22 seconds
+[0m15:31:40.216565 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A3C98797F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A3C5959850>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A3CC4B86D0>]}
+[0m15:31:40.217589 [debug] [MainThread]: Flushing usage events

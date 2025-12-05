@@ -1,0 +1,46 @@
+[2025-12-04T11:43:13.027+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-12-04T11:43:13.108+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: minio_to_snowflake.load_snowflake scheduled__2025-12-04T11:42:00+00:00 [queued]>
+[2025-12-04T11:43:13.123+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: minio_to_snowflake.load_snowflake scheduled__2025-12-04T11:42:00+00:00 [queued]>
+[2025-12-04T11:43:13.130+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-12-04T11:43:13.170+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): load_snowflake> on 2025-12-04 11:42:00+00:00
+[2025-12-04T11:43:13.209+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=9052) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-12-04T11:43:13.205+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'minio_to_snowflake', 'load_snowflake', 'scheduled__2025-12-04T11:42:00+00:00', '--job-id', '272', '--raw', '--subdir', 'DAGS_FOLDER/minio_to_snowflake.py', '--cfg-path', '/tmp/tmpnmyr6ius']
+[2025-12-04T11:43:13.218+0000] {standard_task_runner.py:91} INFO - Job 272: Subtask load_snowflake
+[2025-12-04T11:43:13.218+0000] {standard_task_runner.py:64} INFO - Started process 9058 to run task
+[2025-12-04T11:43:13.301+0000] {task_command.py:426} INFO - Running <TaskInstance: minio_to_snowflake.load_snowflake scheduled__2025-12-04T11:42:00+00:00 [running]> on host 9f4d3c62d25a
+[2025-12-04T11:43:13.489+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='minio_to_snowflake' AIRFLOW_CTX_TASK_ID='load_snowflake' AIRFLOW_CTX_EXECUTION_DATE='2025-12-04T11:42:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-12-04T11:42:00+00:00'
+[2025-12-04T11:43:13.491+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-12-04T11:43:13.524+0000] {connection.py:408} INFO - Snowflake Connector for Python Version: 3.11.0, Python Version: 3.12.4, Platform: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.36
+[2025-12-04T11:43:13.526+0000] {connection.py:1258} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2025-12-04T11:43:21.537+0000] {connectionpool.py:824} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<snowflake.connector.vendored.urllib3.connection.HTTPSConnection object at 0x76d9d926d5e0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution')': /session/v1/login-request?request_id=c6fbc19c-73a2-4d05-8141-e0a6f87d46d9&databaseName=STOCK_MDS&schemaName=COMMON&warehouse=COMPUTE_WH&request_guid=4f88f339-71cc-457f-b09c-d2cfcff66502
+[2025-12-04T11:43:38.604+0000] {connectionpool.py:824} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<snowflake.connector.vendored.urllib3.connection.HTTPSConnection object at 0x76d9d9003e00>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution')': /session/v1/login-request?request_id=10bfc15a-71bb-4e00-900d-2bf602c46fcc&databaseName=STOCK_MDS&schemaName=COMMON&warehouse=COMPUTE_WH&request_guid=62e37672-c4b3-48f4-a372-24fe18a5ab98
+[2025-12-04T11:43:48.475+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839409.json to Snowflake stage
+[2025-12-04T11:43:48.951+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839419.json to Snowflake stage
+[2025-12-04T11:43:49.518+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839429.json to Snowflake stage
+[2025-12-04T11:43:49.886+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839438.json to Snowflake stage
+[2025-12-04T11:43:50.291+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839412.json to Snowflake stage
+[2025-12-04T11:43:50.689+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839422.json to Snowflake stage
+[2025-12-04T11:43:51.044+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839432.json to Snowflake stage
+[2025-12-04T11:43:51.374+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839441.json to Snowflake stage
+[2025-12-04T11:43:51.752+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839412.json to Snowflake stage
+[2025-12-04T11:43:52.206+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839421.json to Snowflake stage
+[2025-12-04T11:43:52.578+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839431.json to Snowflake stage
+[2025-12-04T11:43:52.891+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839440.json to Snowflake stage
+[2025-12-04T11:43:53.261+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839410.json to Snowflake stage
+[2025-12-04T11:43:53.665+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839420.json to Snowflake stage
+[2025-12-04T11:43:54.564+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839429.json to Snowflake stage
+[2025-12-04T11:43:55.059+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839439.json to Snowflake stage
+[2025-12-04T11:43:56.350+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839411.json to Snowflake stage
+[2025-12-04T11:43:56.875+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839421.json to Snowflake stage
+[2025-12-04T11:43:57.223+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839430.json to Snowflake stage
+[2025-12-04T11:43:57.554+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839439.json to Snowflake stage
+[2025-12-04T11:43:57.978+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-12-04T11:43:57.979+0000] {logging_mixin.py:188} INFO - COPY INTO executed
+[2025-12-04T11:43:57.979+0000] {connection.py:773} INFO - closed
+[2025-12-04T11:43:58.069+0000] {connection.py:779} INFO - No async queries seem to be running, deleting session
+[2025-12-04T11:43:58.192+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-12-04T11:43:58.194+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-12-04T11:43:58.210+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=minio_to_snowflake, task_id=load_snowflake, run_id=scheduled__2025-12-04T11:42:00+00:00, execution_date=20251204T114200, start_date=20251204T114313, end_date=20251204T114358
+[2025-12-04T11:43:58.272+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2025-12-04T11:43:58.301+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-04T11:43:58.307+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

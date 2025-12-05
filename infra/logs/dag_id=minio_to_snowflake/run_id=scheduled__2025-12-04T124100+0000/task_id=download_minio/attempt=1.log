@@ -1,0 +1,38 @@
+[2025-12-04T12:43:02.413+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-12-04T12:43:02.455+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: minio_to_snowflake.download_minio scheduled__2025-12-04T12:41:00+00:00 [queued]>
+[2025-12-04T12:43:02.465+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: minio_to_snowflake.download_minio scheduled__2025-12-04T12:41:00+00:00 [queued]>
+[2025-12-04T12:43:02.502+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-12-04T12:43:02.631+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): download_minio> on 2025-12-04 12:41:00+00:00
+[2025-12-04T12:43:02.651+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'minio_to_snowflake', 'download_minio', 'scheduled__2025-12-04T12:41:00+00:00', '--job-id', '355', '--raw', '--subdir', 'DAGS_FOLDER/minio_to_snowflake.py', '--cfg-path', '/tmp/tmpjmfu51_z']
+[2025-12-04T12:43:02.662+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=63) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-12-04T12:43:02.663+0000] {standard_task_runner.py:91} INFO - Job 355: Subtask download_minio
+[2025-12-04T12:43:02.665+0000] {standard_task_runner.py:64} INFO - Started process 69 to run task
+[2025-12-04T12:43:02.999+0000] {task_command.py:426} INFO - Running <TaskInstance: minio_to_snowflake.download_minio scheduled__2025-12-04T12:41:00+00:00 [running]> on host 9f4d3c62d25a
+[2025-12-04T12:43:03.492+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='minio_to_snowflake' AIRFLOW_CTX_TASK_ID='download_minio' AIRFLOW_CTX_EXECUTION_DATE='2025-12-04T12:41:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-12-04T12:41:00+00:00'
+[2025-12-04T12:43:03.501+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-12-04T12:43:04.137+0000] {logging_mixin.py:188} INFO - Downloaded AAPL/1764839409.json -> /tmp/minio_downloads/1764839409.json
+[2025-12-04T12:43:05.074+0000] {logging_mixin.py:188} INFO - Downloaded AAPL/1764839419.json -> /tmp/minio_downloads/1764839419.json
+[2025-12-04T12:43:05.089+0000] {logging_mixin.py:188} INFO - Downloaded AAPL/1764839429.json -> /tmp/minio_downloads/1764839429.json
+[2025-12-04T12:43:05.110+0000] {logging_mixin.py:188} INFO - Downloaded AAPL/1764839438.json -> /tmp/minio_downloads/1764839438.json
+[2025-12-04T12:43:05.132+0000] {logging_mixin.py:188} INFO - Downloaded AMZN/1764839412.json -> /tmp/minio_downloads/1764839412.json
+[2025-12-04T12:43:05.164+0000] {logging_mixin.py:188} INFO - Downloaded AMZN/1764839422.json -> /tmp/minio_downloads/1764839422.json
+[2025-12-04T12:43:05.194+0000] {logging_mixin.py:188} INFO - Downloaded AMZN/1764839432.json -> /tmp/minio_downloads/1764839432.json
+[2025-12-04T12:43:05.216+0000] {logging_mixin.py:188} INFO - Downloaded AMZN/1764839441.json -> /tmp/minio_downloads/1764839441.json
+[2025-12-04T12:43:05.243+0000] {logging_mixin.py:188} INFO - Downloaded GOOGL/1764839412.json -> /tmp/minio_downloads/1764839412.json
+[2025-12-04T12:43:05.270+0000] {logging_mixin.py:188} INFO - Downloaded GOOGL/1764839421.json -> /tmp/minio_downloads/1764839421.json
+[2025-12-04T12:43:05.304+0000] {logging_mixin.py:188} INFO - Downloaded GOOGL/1764839431.json -> /tmp/minio_downloads/1764839431.json
+[2025-12-04T12:43:05.326+0000] {logging_mixin.py:188} INFO - Downloaded GOOGL/1764839440.json -> /tmp/minio_downloads/1764839440.json
+[2025-12-04T12:43:05.342+0000] {logging_mixin.py:188} INFO - Downloaded MSFT/1764839410.json -> /tmp/minio_downloads/1764839410.json
+[2025-12-04T12:43:05.359+0000] {logging_mixin.py:188} INFO - Downloaded MSFT/1764839420.json -> /tmp/minio_downloads/1764839420.json
+[2025-12-04T12:43:05.380+0000] {logging_mixin.py:188} INFO - Downloaded MSFT/1764839429.json -> /tmp/minio_downloads/1764839429.json
+[2025-12-04T12:43:05.411+0000] {logging_mixin.py:188} INFO - Downloaded MSFT/1764839439.json -> /tmp/minio_downloads/1764839439.json
+[2025-12-04T12:43:05.441+0000] {logging_mixin.py:188} INFO - Downloaded TSLA/1764839411.json -> /tmp/minio_downloads/1764839411.json
+[2025-12-04T12:43:05.471+0000] {logging_mixin.py:188} INFO - Downloaded TSLA/1764839421.json -> /tmp/minio_downloads/1764839421.json
+[2025-12-04T12:43:05.505+0000] {logging_mixin.py:188} INFO - Downloaded TSLA/1764839430.json -> /tmp/minio_downloads/1764839430.json
+[2025-12-04T12:43:05.519+0000] {logging_mixin.py:188} INFO - Downloaded TSLA/1764839439.json -> /tmp/minio_downloads/1764839439.json
+[2025-12-04T12:43:05.523+0000] {python.py:237} INFO - Done. Returned value was: ['/tmp/minio_downloads/1764839409.json', '/tmp/minio_downloads/1764839419.json', '/tmp/minio_downloads/1764839429.json', '/tmp/minio_downloads/1764839438.json', '/tmp/minio_downloads/1764839412.json', '/tmp/minio_downloads/1764839422.json', '/tmp/minio_downloads/1764839432.json', '/tmp/minio_downloads/1764839441.json', '/tmp/minio_downloads/1764839412.json', '/tmp/minio_downloads/1764839421.json', '/tmp/minio_downloads/1764839431.json', '/tmp/minio_downloads/1764839440.json', '/tmp/minio_downloads/1764839410.json', '/tmp/minio_downloads/1764839420.json', '/tmp/minio_downloads/1764839429.json', '/tmp/minio_downloads/1764839439.json', '/tmp/minio_downloads/1764839411.json', '/tmp/minio_downloads/1764839421.json', '/tmp/minio_downloads/1764839430.json', '/tmp/minio_downloads/1764839439.json']
+[2025-12-04T12:43:05.527+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-12-04T12:43:05.620+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=minio_to_snowflake, task_id=download_minio, run_id=scheduled__2025-12-04T12:41:00+00:00, execution_date=20251204T124100, start_date=20251204T124302, end_date=20251204T124305
+[2025-12-04T12:43:05.697+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2025-12-04T12:43:05.759+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-12-04T12:43:05.767+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

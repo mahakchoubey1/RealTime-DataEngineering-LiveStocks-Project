@@ -1,0 +1,44 @@
+[2025-12-04T13:17:43.287+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-12-04T13:17:43.333+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: minio_to_snowflake.load_snowflake scheduled__2025-12-04T13:16:00+00:00 [queued]>
+[2025-12-04T13:17:43.351+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: minio_to_snowflake.load_snowflake scheduled__2025-12-04T13:16:00+00:00 [queued]>
+[2025-12-04T13:17:43.357+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-12-04T13:17:43.383+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): load_snowflake> on 2025-12-04 13:16:00+00:00
+[2025-12-04T13:17:43.404+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'minio_to_snowflake', 'load_snowflake', 'scheduled__2025-12-04T13:16:00+00:00', '--job-id', '426', '--raw', '--subdir', 'DAGS_FOLDER/minio_to_snowflake.py', '--cfg-path', '/tmp/tmp2_07tobb']
+[2025-12-04T13:17:43.411+0000] {standard_task_runner.py:91} INFO - Job 426: Subtask load_snowflake
+[2025-12-04T13:17:43.413+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=2871) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-12-04T13:17:43.415+0000] {standard_task_runner.py:64} INFO - Started process 2880 to run task
+[2025-12-04T13:17:43.541+0000] {task_command.py:426} INFO - Running <TaskInstance: minio_to_snowflake.load_snowflake scheduled__2025-12-04T13:16:00+00:00 [running]> on host 9f4d3c62d25a
+[2025-12-04T13:17:43.761+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='minio_to_snowflake' AIRFLOW_CTX_TASK_ID='load_snowflake' AIRFLOW_CTX_EXECUTION_DATE='2025-12-04T13:16:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-12-04T13:16:00+00:00'
+[2025-12-04T13:17:43.765+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-12-04T13:17:43.851+0000] {connection.py:408} INFO - Snowflake Connector for Python Version: 3.11.0, Python Version: 3.12.4, Platform: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.36
+[2025-12-04T13:17:43.856+0000] {connection.py:1258} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2025-12-04T13:17:46.667+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839409.json to Snowflake stage
+[2025-12-04T13:17:47.031+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839419.json to Snowflake stage
+[2025-12-04T13:17:47.423+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839429.json to Snowflake stage
+[2025-12-04T13:17:47.884+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839438.json to Snowflake stage
+[2025-12-04T13:17:48.371+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839412.json to Snowflake stage
+[2025-12-04T13:17:48.745+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839422.json to Snowflake stage
+[2025-12-04T13:17:49.099+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839432.json to Snowflake stage
+[2025-12-04T13:17:49.417+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839441.json to Snowflake stage
+[2025-12-04T13:17:49.750+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839412.json to Snowflake stage
+[2025-12-04T13:17:50.075+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839421.json to Snowflake stage
+[2025-12-04T13:17:50.449+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839431.json to Snowflake stage
+[2025-12-04T13:17:50.783+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839440.json to Snowflake stage
+[2025-12-04T13:17:51.144+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839410.json to Snowflake stage
+[2025-12-04T13:17:51.468+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839420.json to Snowflake stage
+[2025-12-04T13:17:51.813+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839429.json to Snowflake stage
+[2025-12-04T13:17:52.170+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839439.json to Snowflake stage
+[2025-12-04T13:17:52.579+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839411.json to Snowflake stage
+[2025-12-04T13:17:52.945+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839421.json to Snowflake stage
+[2025-12-04T13:17:53.296+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839430.json to Snowflake stage
+[2025-12-04T13:17:53.654+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1764839439.json to Snowflake stage
+[2025-12-04T13:17:54.066+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-12-04T13:17:54.068+0000] {logging_mixin.py:188} INFO - COPY INTO executed
+[2025-12-04T13:17:54.073+0000] {connection.py:773} INFO - closed
+[2025-12-04T13:17:54.169+0000] {connection.py:779} INFO - No async queries seem to be running, deleting session
+[2025-12-04T13:17:54.277+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-12-04T13:17:54.294+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-12-04T13:17:54.330+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=minio_to_snowflake, task_id=load_snowflake, run_id=scheduled__2025-12-04T13:16:00+00:00, execution_date=20251204T131600, start_date=20251204T131743, end_date=20251204T131754
+[2025-12-04T13:17:54.426+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2025-12-04T13:17:54.460+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-04T13:17:54.467+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
